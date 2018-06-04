@@ -1,0 +1,111 @@
+/*
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+
+:host {
+  overflow: hidden;
+}
+
+.splash {
+	background-color: #eee;
+	margin: auto;
+  width: 306px;
+  height: 396px;
+}
+/*
+102
+132
+*/
+.splash.wide {
+  width: 510px;
+  height: 660px;
+  margin: auto;
+}
+.splash.wide #cover {
+  width: 360px;
+  height: 360px;
+}
+
+#turntable-collection {
+  z-index: 0
+}
+
+#album,
+#turntable,
+#needle {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#album {
+  background-image: url(/images/album.svg);
+}
+
+
+#cover {
+  z-index: 10;
+  width: 220px;
+  height: 220px;
+	position: relative;
+  margin: auto;
+  background: #EA5740;
+  color: #F4F0EC;
+  font-size: 28px;
+  padding: 10px;
+}
+#cover.clickable {
+  cursor: pointer;
+}
+#cover > .play-icon {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+}
+#cover:hover > .play-icon {
+	opacity: 1;
+}
+
+
+#turntable {
+	left: 4000px;
+  background-image: url(/images/turntable.svg);
+}
+
+#needle {
+  -webkit-transform-origin: 85% 23%;
+  transform-origin: 85% 23%;
+
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+
+  -webkit-transition: -webkit-transform .5s ease-in-out;
+  transition: transform .5s ease-in-out;
+
+	left: 4000px;
+  background-image: url(/images/needle.svg);
+}
+
+#needle.place {
+  -webkit-transform: rotate(0);
+  transform: rotate(0);
+}
+
+
+
+
+
+
+
+
+

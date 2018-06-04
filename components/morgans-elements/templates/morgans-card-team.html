@@ -1,0 +1,78 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+
+<link rel="import" href="../morgans-card-base.html">
+<link rel="import" href="../morgans-html-element.html">
+
+<polymer-element name="morgans-card-team" attributes="post" extends="morgans-card-base">
+
+  <template>
+
+    <link rel="stylesheet" href="../morgans-cards.css">
+
+    <style>
+      .member {
+
+      }
+      .member > img {
+        border-radius: 50%;
+        height: 80px;
+        margin: 20px;
+      }
+      .member-content {
+        padding: 0 20px;
+        line-height: 26px;
+      }
+      .member-name {
+        margin: 0;
+      }
+      .member-link {
+        padding-right: 5px;
+      }
+
+
+    </style>
+
+
+    <div class="card">
+
+      <core-toolbar class="theme-bg">
+        <div flex>{{card.title || "The Team"}}</div>
+      </core-toolbar>
+      <template repeat="{{member, i in card.members}}">
+
+        <div class="member" horizontal layout >
+          <img class="circle" src="{{member.picture.url}}">
+          <div flex vertical layout>
+            <div flex></div>
+            <div class="member-content">
+              <h2 class="member-name">{{member.name}}</h2>
+              <div>
+                <a class="member-link" hidden?="{{!member.linkedin}}" href="{{member.linkedin}}">linkedin</a>
+                <a class="member-link" hidden?="{{!member.angellist}}" href="{{member.angellist}}">angellist</a>
+              </div>
+            </div>
+            <div flex></div>
+          </div>  
+        </div>
+      </template>
+    </div>
+
+
+  </template>
+  <script>
+    Polymer('morgans-card-team', {
+      ready: function() {
+
+
+      }
+    });
+  </script>
+</polymer-element>

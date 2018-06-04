@@ -1,0 +1,66 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+
+<link rel="import" href="../morgans-card-base.html">
+<link rel="import" href="../morgans-html-element.html">
+
+<polymer-element name="morgans-card-bullets" attributes="post" extends="morgans-card-base">
+
+  <template>
+
+    <link rel="stylesheet" href="../morgans-cards.css">
+
+    <style>
+
+      .bullet > core-icon {
+        border-radius: 50%;
+        height: 80px;
+        margin: 20px;
+      }
+      .bullet-content {
+        padding: 0 20px;
+        line-height: 26px;
+      }
+
+
+    </style>
+
+
+    <div class="card">
+
+      <core-toolbar class="theme-bg">
+        <div flex>{{card.title}}</div>
+      </core-toolbar>
+      <template repeat="{{bullet, i in card.bullets}}">
+
+        <div class="bullet" horizontal layout >
+          <core-icon icon="{{card.icons}}:{{bullet.icon}}"></core-icon>
+          <div flex vertical layout>
+            <div flex></div>
+            <div class="bullet-content">
+              <morgans-html-element html="{{bullet.item}}"></morgans-html-element>
+            </div>
+            <div flex></div>
+          </div>  
+        </div>
+      </template>
+    </div>
+
+
+  </template>
+  <script>
+    Polymer('morgans-card-bullets', {
+      ready: function() {
+
+
+      }
+    });
+  </script>
+</polymer-element>

@@ -1,0 +1,80 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="templates/morgans-card-bullets.html">
+<link rel="import" href="templates/morgans-card-dribbble-bucket.html">
+<link rel="import" href="templates/morgans-card-dribbble-likes.html">
+<link rel="import" href="templates/morgans-card-highcharts.html">
+<link rel="import" href="templates/morgans-card-icon-links.html">
+<link rel="import" href="templates/morgans-card-iframe.html">
+<link rel="import" href="templates/morgans-card-map.html">
+<link rel="import" href="templates/morgans-card-next-project.html">
+<link rel="import" href="templates/morgans-card-number.html">
+<link rel="import" href="templates/morgans-card-picture.html">
+<link rel="import" href="templates/morgans-card-post.html">
+<link rel="import" href="templates/morgans-card-posts.html">
+<link rel="import" href="templates/morgans-card-quote.html">
+<link rel="import" href="templates/morgans-card-tags.html">
+<link rel="import" href="templates/morgans-card-team.html">
+<link rel="import" href="templates/morgans-card-video.html">
+
+<polymer-element name="morgans-card-template" attributes="card hit type" block>
+
+<template>
+
+  <style>
+
+    :host {
+      display: inline-block;
+      position: relative;
+      background: #fff;
+      border-radius: 2px;
+      transition: 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+      transition-property: opacity, -webkit-transform;
+      transition-property: opacity, transform;
+      margin-bottom: 40px;
+    }
+    :host(.dragging) {
+      transition: none;
+    }
+    #paper-shadow {
+      border-radius: 2px;
+    }
+  </style>
+
+  <link rel="stylesheet" href="morgans-cards.css">
+  
+  <paper-shadow z="1" fit id="paper-shadow"></paper-shadow>
+  <div id="append"></div>
+
+
+</template>
+<script>
+
+  Polymer('morgans-card-template', {
+    
+    ready: function() {
+      if (this.type)
+        this.view = document.createElement('morgans-card-' + this.type);
+      else
+        this.view = document.createElement('morgans-card-' + this.card.type);
+      
+      if (this.card)
+        this.view.card = this.card;
+      
+      this.view.hit = this.hit;
+
+      this.$.append.appendChild(this.view);
+
+    }
+    
+  });
+
+</script>
+</polymer-element>

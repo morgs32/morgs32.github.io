@@ -1,0 +1,813 @@
+[
+    {
+        "name": "Morgan Intrator",
+        "id": "profile",
+        "theme": "gray",
+        "image": {
+            "url": "images/hits/profile.png"
+        },
+        "description": "Yes, that is a picture of me and my motorcycle. Now you know something about me - I am one of those guys.",
+        "background": "This is both a portfolio site and an exercise in programming. If you're curious how I put it together, go to <a href='http://www.morganatwork.com' target='_blank'>morganatwork.com</a>. Look around and you'll see some other work of mine. If you have questions, email me at <a href='mailto:morgan.intrator@gmail.com' target='_blank'>morgan.intrator@gmail.com</a>",
+        "cards": [{
+                "type": "icon-links",
+                "title": "Links",
+                "iconset": "fa",
+                "icons": [{
+                        "icon": "linkedin",
+                        "link": "http://www.linkedin.com/pub/morgan-intrator"
+                    }, {
+                        "icon": "twitter",
+                        "link": "https://twitter.com/morgs32"
+                    }, {
+                        "icon": "pencil-square-o",
+                        "link": "http://www.morganatwork.com"
+                    }, {
+                        "icon": "github",
+                        "link": "https://github.com/morgs32"
+                    }, {
+                        "icon": "angellist",
+                        "link": "https://angel.co/morgan-intrator"
+                    }, {
+                        "icon": "dribbble",
+                        "link": "https://dribbble.com/morgs32/following"
+                    }
+                ]
+            }, {
+                "type": "tags",
+                "title": "I built this site with...",
+                "tags": [
+                    "Polymer",
+                    "Github",
+                    "Google Maps API",
+                    "Firebase"
+                ]
+            }, {
+                "type": "quote",
+                "quote": "Stop trying to build rocket ships",
+                "source": "one of my managers at Citi"
+            }, {
+                "type": "map",
+                "title": "Home is where...",
+                "latitude": 32.7767,
+                "longitude": -96.7970,
+                "show": true,
+                "markers": [{
+                        "_comment": "I went to montessori school",
+                        "latitude": 33.947707,
+                        "longitude": -84.505576
+                    }, {
+                        "_comment": "I was born",
+                        "latitude": 41.4949425,
+                        "longitude": -81.70586
+                    }, {
+                        "_comment": "I went to college",
+                        "latitude": 36.144703,
+                        "longitude": -86.802655
+                    }, {
+                        "_comment": "I went to high school",
+                        "latitude": 42.647171,
+                        "longitude": -71.132272
+                    }, {
+                        "_comment": "I learned to ride a motorcycle",
+                        "latitude": 35.7938184,
+                        "longitude": -78.6465022
+                    }, {
+                        "_comment": "I worked after college",
+                        "latitude": 40.7206751,
+                        "longitude": -74.0111456
+                    }, {
+                        "_comment": "I went to middle school",
+                        "latitude": 32.890486,
+                        "longitude": -96.801201
+                    }
+                ],
+                "content": "No, I wasn't an army brat - just nomadic."
+            }, {
+                "type": "quote",
+                "quote": "I now pronounce you man and bike",
+                "source": "the guy who sold me my bike"
+            }, {
+                "type": "picture",
+                "title": "Favorite pasttime",
+                "picture": {
+                    "url": "images/pictures/profile/hockey.png",
+                    "name": "After winning the championship in the 4B league at Chelsea Piers"
+                },
+                "content": "Ice hockey. Sport of the gods."
+            }, {
+                "type": "highcharts",
+                "title": "Scores on the CFA exams",
+                "content": "But, I failed Level 3 the first time",
+                "options": {
+                    "chart": {
+                        "type": "bar"
+                    },
+                    "title": {
+                        "text": "",
+                        "style": {
+                            "display": "none"
+                        }
+                    },
+                    "subtitle": {
+                        "text": "",
+                        "style": {
+                            "display": "none"
+                        }
+                    },                    
+                    "tooltip": {
+                        "enabled": false
+                    },
+                    "xAxis": {
+                        "categories": ["Level 1", "Level 2", "Level 3"]
+                    },
+                    "yAxis": {
+                        "title": {
+                            "text": "%"
+                        }
+                    },
+                    "series": [{
+                        "name": "Test Scores",
+                        "data": [75, 85, 80]
+                    }]
+                }
+            }
+
+        ]
+    },
+    {
+        "name": "College Itinerary",
+        "id": "collegeitinerary",
+        "theme": "green",
+        "image": {
+            "url": "images/hits/collegeitinerary.png"
+        },
+        "description": "College Itinerary is where students can go to get all their college application deadlines and requirements quickly and conveniently",
+        "widget_id": 579806355571281920,
+        "source": {
+            "url": "http://www.collegeitinerary.com",
+            "name": "www.collegeitinerary.com"
+        },
+        "background": "College Itinerary was my first experiment with the complete MEAN stack - MongoDB, Express, AngularJS, NodeJS",
+        "cards": [{
+                "type": "team",
+                "members": [{
+                        "name": "Morgan Intrator",
+                        "id": "morganintrator",
+                        "linkedin": "http://www.linkedin.com/in/morganintrator",
+                        "picture": {
+                            "url": "/images/members/morganintrator.png"
+                        } 
+                    }
+                ]
+            }, {
+                "type": "tags",
+                "title": "I built this site with...",
+                "tags": [
+                    "Phantomjs",
+                    "Nodejs",
+                    "Angularjs",
+                    "MongoDB",
+                    "MongoLab",
+                    "Azure"
+                ]
+            }, {
+                "type": "number",
+                "title": "Lines of Code",
+                "number": 16061,
+                "content": "Mosty javascript"
+            }, {
+                "type": "dribbble-bucket",
+                "bucket": 180851,
+                "content": "Inspired by lots of calendars and timelines"
+            }, {
+            }, {
+                "type": "iframe",
+                "iframe": "iframes/collegeitinerary/example/index.html",
+                "title": "Weekly emails to users"
+            }
+        ]
+    },
+    {
+
+        "name": "Morgan at Work (Blog)",
+        "id": "morganatwork",
+        "theme": "yellow",
+        "image": {
+            "url": "images/hits/morganatwork.png"
+        },
+        "source": {
+            "url": "http://www.morganatwork.com",
+            "name": "www.morganatwork.com"
+        },
+        "description": "A blog about the challenges I encounter at work and which, hopefully, I overcome.",
+        "background": "Some of the entries are technical - they involve programming a web scraper or hell, a whole application. Other entries are about growing pains at a startup - strategic decisions, culture, controversy, conspiracy, and resolutions.",
+        "about": "http://www.morganatwork.com",
+        "cards": [{
+                "type": "tags",
+                "title": "Technologies",
+                "tags": [
+                    "Wordpress",
+                    "Azure"
+                ]
+            }, {
+                "type": "quote",
+                "quote": "So I don't have to repeat myself",
+                "source": "Morgan at work"
+            }
+        ]
+    },
+    {
+        "name": "YourSigma",
+        "id": "yoursigma",
+        "theme": "blue",
+        "image": {
+            "url": "images/hits/yoursigma.png"
+        },
+        "description": "YourSigma provided a web platform for small and large businesses to create and share courses among their employees encouraging <strong>cooperative</strong> learning and professional development.",
+        "source": {
+            "url": "http://www.yoursigma.com",
+            "name": "www.yoursigma.com"
+        },
+        "background": "We were inspired, at first, by <a href='http://www.grockit.com' target='_blank'>Grockit</a>. We created a similar platform for our users to take timed multiple choice questions, <strong>together</strong>. Later, we added all the features of a learning management system (LMS), incorporating videos, readings, and quizzes. And, we made it easy for users to create their own courses from almost anything: videos, documents, and presentations.",
+        "cards": [
+            {
+                "type": "team",
+                "members": [{
+                        "name": "Morgan Intrator",
+                        "id": "morganintrator",
+                        "linkedin": "http://www.linkedin.com/in/morganintrator",
+                        "picture": {
+                            "url": "/images/members/morganintrator.png"
+                        } 
+                    }, {
+                        "name": "Chris Webb",
+                        "id": "chriswebb",
+                        "linkedin": "http://www.linkedin.com/in/chrishwebb",
+                        "picture": {
+                            "url": "/images/members/chriswebb.png"
+                        } 
+                    }, {
+                        "name": "Alfonso Pacheco",
+                        "id": "alfonsopacheco",
+                        "linkedin": "http://www.linkedin.com/in/pachecoalfonso",
+                        "picture": {
+                            "url": "/images/members/alfonsopacheco.png"
+                        } 
+                    }, {
+                        "name": "Jason Heller",
+                        "id": "jasonheller",
+                        "linkedin": "http://www.linkedin.com/in/jason-heller",
+                        "picture": {
+                            "url": "/images/members/jasonheller.png"
+                        } 
+                    }
+                ]
+            }, {
+                "type": "video",
+                "title": "Your Business' new MOOC",
+                "video": {
+                    "url": "https://www.youtube.com/embed/u0RuwpncWTY",
+                    "name": "Your Business' new MOOC"
+                },
+                "content": "This is a video tutorial I filmed, edited, and narrated. In 3 minutes, I demonstrate most of the features of our platform. I built the front-end with AngularJS. I created the video with Adobe Premiere Pro."
+            }, {
+                "type": "quote",
+                "quote": "YourSigma is like your mistress. And I hate her.",
+                "source": "a wise woman"
+            }, {
+                "type": "tags",
+                "title": "Technologies",
+                "tags": [
+                    "AngularJS",
+                    "JavaScript",
+                    "NodeJS",
+                    "Grunt",
+                    "VideoJS",
+                    "JQuery",
+                    "Bootstrap"
+                ]
+            }, {
+                "type": "tags",
+                "title": "Business Tools",
+                "tags": [
+                    "Streak CRM",
+                    "Xero"
+                ]
+            }, {
+                "type": "picture",
+                "title": "Designing the Logo",
+                "picture": {
+                    "url": "images/pictures/yoursigma/logo.png",
+                    "name": "Designs from "
+                },
+                "content": "For a long time we just used a font (Lubalin Graph) to make a logo from our company name. Some time after looking for tax and accounting software, I created this one. While we ended up using Xero to do our books, I thought their competitor <a href='https://saasu.com/' target='_blank'>Saasu</a> had a logo we could emulate."
+            }, {
+                "type": "picture",
+                "title": "Initial designs in MS Visio ",
+                "picture": {
+                    "url": "images/pictures/yoursigma/visio.png",
+                    "name": "Designs from "
+                },
+                "content": "MS Visio - crazy to believe. Chris, Alfonso, Jason and I worked these designs out over drinks at <a href='http://www.buabar.com/' target='_blank'>Bua</a> for weeks. I built iterations of them in MS Visio, and we used these to inform the designs we later received from <a href='https://www.linkedin.com/in/jilliandresser'>Jillian Dresser</a>."
+            }, {
+                "type": "map",
+                "title": "The YourSigma Journey",
+                "latitude": 32.7767,
+                "longitude": -96.7970,
+                "show": true,
+                "markers": [{
+                        "title": "Quit Citigroup",
+                        "latitude": 40.7127,
+                        "longitude": -74.0059
+                    }, {
+                        "title": "Joined Tech Wildcatters",
+                        "latitude": 32.7767,
+                        "longitude": -96.7970
+                    }, {
+                        "title": "Learned Angular",
+                        "latitude": 37.7833,
+                        "longitude": -122.4167
+                    }
+                ],
+                "content": "New York in 2012, San Francisco in 2013, and Dallas in 2014."
+            }
+
+
+        ]
+    },
+    {
+        "name": "Mentor Mailbox",
+        "id": "mentormailbox",
+        "theme": "orange",
+        "image": {
+            "url": "images/hits/applicationmoneyball.png"
+        },
+        "description": "Mentor Mailbox is a way to engage students in conversation with their schools. All they have to do is text.",
+        "background": "The goal is retention. All studies point to engagement as the universal means of supporting and motivating students to complete college or high school. Students text their questions, we route them to the right people at their school, who respond through our web app. For staff and faculty, we look like <a href='http://www.slack.com'>Slack</a>, wherein each \"Channel\" is an ongoing conversation with each student.",
+        "source": {
+            "url": "http://www.mentormailbox.com",
+            "name": "www.mentormailbox.com"
+        },
+        "cards": [
+
+            {
+                "type": "tags",
+                "title": "Tools used",
+                "tags": [
+                    "angular material",
+                    "angularjs",
+                    "nodejs",
+                    "firebase",
+                    "heroku",
+                    "twilio"
+                ]
+            },
+            {
+                "type": "video",
+                "title": "Device Agnostic",
+                "video": {
+                    "url": "https://www.youtube.com/embed/RF2gZRtmmBU",
+                    "name": "Mentor Mailbox"
+                },
+                "content": "The only truly 24/7 platform for any student without broadband internet or a computer at home. All they have to do is text."
+            }
+        ]
+    },
+    {
+        "name": "Upswing",
+        "id": "upswing",
+        "theme": "red",
+        "image": {
+            "url": "images/hits/upswing.png"
+        },
+        "source": {
+            "url": "http://www.upswing.io",
+            "name": "www.upswing.io"
+        },
+        "description": "Upswing is out to improve college retention with a complete suite of services: online tutoring and courseware for students, space and service utilization tracking for staff, virtual office hours for faculty, and comprehensive analytics for administrators.",
+        "background": "YourSigma merged with Upswing in June 2014. Chris Webb and I rebuilt Upswing's online tutoring platform to sit on top of the YourSigma architecture and LMS (learning management system). Together, the four cofounders were better able to move fast on a lucrative market opportunity in higher ed retention software.",
+        "cards": [
+            {
+                "type": "team",
+                "title": "The Co-founders",
+                "members": [{
+                    "name": "Melvin Hines",
+                    "id": "melvinhines",
+                    "linkedin": "http://www.linkedin.com/in/mhinesjr",
+                    "picture": {
+                        "url": "/images/members/melvinhines.png"
+                    }
+                }, {
+                    "name": "Morgan Intrator",
+                    "id": "morganintrator",
+                    "linkedin": "http://www.linkedin.com/in/morganintrator",
+                    "picture": {
+                        "url": "/images/members/morganintrator.png"
+                    }
+                }, {
+                    "name": "Chris Webb",
+                    "id": "chriswebb",
+                    "linkedin": "http://www.linkedin.com/in/chrishwebb",
+                    "picture": {
+                        "url": "/images/members/chriswebb.png"
+                    }
+                }, {
+                    "name": "Alex Pritchett",
+                    "id": "alexpritchett",
+                    "linkedin": "http://www.linkedin.com/in/alexpritchett",
+                    "picture": {
+                        "url": "/images/members/alexpritchett.png"
+                    }
+                }
+                ]
+            }, {
+                "type": "icon-links",
+                "title": "Links",
+                "iconset": "fa",
+                "icons": [{
+                    "icon": "linkedin",
+                    "link": "http://www.linkedin.com/company/upswi-ng"
+                }, {
+                    "icon": "twitter",
+                    "link": "https://http://twitter.com/upswing"
+                }, {
+                    "icon": "pencil-square-o",
+                    "link": "http://blog.upswing.io/"
+                }, {
+                    "icon": "angellist",
+                    "link": "https://angel.co/upswing"
+                }
+                ]
+            }, {
+                "type": "number",
+                "title": "Lines of Code",
+                "number": 7684,
+                "content": "Code that I wrote in javascript. Easily as many lines written in html and css/less."
+            }, {
+                "type": "tags",
+                "title": "Built with ...",
+                "tags": [
+                    "Less",
+                    "Angularjs",
+                    "C#",
+                    "PostgreSQL",
+                    "Grunt",
+                    "MomentJS",
+                    "Highcharts"
+                ]
+            }, {
+                "type": "video",
+                "title": "On a mission",
+                "video": {
+                    "url": "https://www.youtube.com/embed/-iYWjH4FfuA",
+                    "name": "About Upswing"
+                },
+                "content": "A explanatory video for both our prospective schools and investors"
+            }, {
+                "type": "map",
+                "title": "Upswing customers",
+                "latitude": 35.9886,
+                "longitude": -78.9072,
+                "markers": [{
+                    "title": "Davidson County Community College",
+                    "latitude": 35.8655,
+                    "longitude": -80.1820
+                }, {
+                    "title": "College of the Albemarle",
+                    "latitude": 36.3249,
+                    "longitude": -76.2202
+                }, {
+                    "title": "Pitt Community College",
+                    "latitude": 35.5505,
+                    "longitude": -77.4085
+                }, {
+                    "title": "Bladen Community College",
+                    "latitude": 34.6443,
+                    "longitude": -78.7300
+                }, {
+                    "title": "Durham Technical Community College",
+                    "latitude": 35.9750,
+                    "longitude": -78.8810
+                }, {
+                    "title": "Sandhills Community College",
+                    "latitude": 35.2211,
+                    "longitude": -79.4077
+                }, {
+                    "title": "Central Carolina Community College",
+                    "latitude": 35.471871,
+                    "longitude": -79.143539
+                }
+                ],
+                "content": "Upswing was born in North Carolina and is now expanding into Texas"
+            }
+        ]
+    }, {
+        "name": "CFAid",
+        "id": "cfaid",
+        "theme": "purple",
+        "image": {
+            "url": "images/hits/cfaid.png"
+        },
+        "description": "Amidst the iPhone app craze of 2009, a flashard app emerges to help financial analysts conquer the CFA Level 1 exam",
+        "background": "Having just passed the Level 1 exam, I was struck by the fact that, while there were iPhone apps that made farting noises or ripped off scrabble, there wasn't an app with flashcards for the CFA exam. So I bought <a href='http://www.amazon.com/gp/product/1430216263/ref=oh_aui_detailpage_o04_s00?ie=UTF8&psc=1' target='_blank'>this book</a> and built one.",
+        "source": {
+            "url": "https://itunes.apple.com/us/app/cfaid-level-1/id430259819",
+            "name": "Find it on the app store!"
+        },
+        "cards": [{
+                "type": "team",
+                "members": [{
+                        "name": "Morgan Intrator",
+                        "id": "morganintrator",
+                        "linkedin": "http://www.linkedin.com/in/morganintrator",
+                        "picture": {
+                            "url": "/images/members/morganintrator.png"
+                        } 
+                    }
+                ]
+            }, {
+                "type": "number",
+                "title": "Number of iPhones I have ever owned",
+                "number": 0,
+                "content": "Yup"
+            }, {
+                "type": "highcharts",
+                "title": "Downloads and sales",
+                "content": "I took it off the app store in 2013, thinking I'd make it part of the YourSigma platform. Now (as of April 2015) it's back up and free.",
+                "options": {
+                    "chart": {
+                        "type": "bar"
+                    },
+                    "title": {
+                        "text": "",
+                        "style": {
+                            "display": "none"
+                        }
+                    },
+                    "subtitle": {
+                        "text": "",
+                        "style": {
+                            "display": "none"
+                        }
+                    },                    
+                    "tooltip": {
+                        "enabled": true
+                    },
+                    "xAxis": {
+                        "title": {
+                            "text": ""
+                        },
+                        "categories": ["2010", "2011", "2012", "2013"]
+                    },
+                    "yAxis": {
+                        "title": {
+                            "text": ""
+                        }
+                    },
+                    "series": [{
+                            "name": "Downloads (units)",
+                            "data": [19, 377, 147, 4]
+                        }, {
+                            "name": "Sales ($)",
+                            "data": [262, 191, 300, 8]
+                        }
+                    ]
+                }
+            }, {
+                "type": "quote",
+                "quote": "Wow, talk about a helpful app! My buddy is taking the CFA soon enough so I told him to download this application to see if it could help him out. All I know is he's loving it and he bought me dinner to thank me for the recommendation. So even though I haven't used it yet personally, my buddy loves it so much he took me out for food, always helpful! Thanks for being amazing, CFAid!",
+                "source": "jim120895021834"
+            }, {
+                "type": "quote",
+                "quote": "I've found this very helpful in preparing the Level 1 coming up in December. It is easy to use, has all the important formulas, and has a ton of practice questions!",
+                "source": "Steveb1986"
+            }, {
+                "type": "quote",
+                "quote": "I used to be a part of the 99%. After using this app for 3 months I'm now in the 1%.",
+                "source": "Jasonh1234321"
+            }, {
+                "type": "quote",
+                "quote": "Was told about this app while studying for my cfa. I haven't spent much time but it makes me want to give the developer a ZJ",
+                "source": "Jmarston4"
+            }, {
+                "type": "quote",
+                "quote": "Upon downloading and getting comfortable with this app, I am confident of my future success. My preparation has me convinced everything in my life is going to improve. Using this app will allow you to take the steps to better your life, from increasing your income substantially to ensuring you will never again have to date aesthetically challenged members of the opposite gender, unless thats what you are into, in which case you will have to fight them off with your brand new gold-topped mahogany cane you bought with your signing bonus from your new elite firm!",
+                "source": "MMayKnowBetterThanYou"
+            }
+        ]
+    },
+    {
+        "name": "Other Projects",
+        "id": "other",
+        "theme": "yellow",
+        "image": {
+            "url": "images/hits/other.png"
+        },
+        "description": "Hobby projects, prior art, and things I plan on building soon. <strong>Can't stop won't stop</strong>",
+        "background": "First, a shout out to teamtreehouse. Those guys have perfected the art of project-based learning. Such as, you'll learn Angular, in a matter of hours, by building a basic clone of Dribbble.<br><br>If you're an aspiring entrepreneur, and you have an idea, then get to work. You can build <strong>something</strong>, in some capacity, and if you can't then this is probably some fleeting aberation from your real interests. If you're learning, build something that will test your skills or require new ones. Run the guantlet, so to speak - tackling projects of increasing difficulty.<br><br>Ok, that's my schtick.",
+        "cards": [{
+                "type": "next-project",
+                "title": "Drawing with Adobe's Snap library",
+                "picture": {
+                    "url": "images/pictures/other/snapsvg.png",
+                    "name": "The mascot for Adobe's Snap SVG library"
+                },
+                "content": "Have you ever used <a href='https://evernote.com/skitch/' target='_blank'>Skitch</a>? It's not a bad tool, but it requires having an Evernote account, downloading the app, installing it, and then opening a file from inside an active window. It's core feature, I believe, is the ability to create an arrow, move it around, and annotate a comment alongside it.<br><br>That basic functionality could be replicated using Adobe's <strong>new</strong> <a href='http://snapsvg.io' target='_blank'>Snap SVG</a> library. Then, simple annotations could be made on a picture or document, right in the browser."
+            }, {
+                "type": "next-project",
+                "title": "An Ionic mobile app in Angular Material",
+                "picture": {
+                    "url": "images/pictures/other/ionic-angular.png",
+                    "name": "Ionic and Angular"
+                },
+                "content": "It's about time I tried <a href='http://ionicframework.com/' target='_blank'>Ionic</a> - a mobile application framework that allows you to publish to both iPhone and Android. I'm already a huge fan of AngularJS and Material Design. And, Ionic is in tandem now with the Angular team to improve the <a href='https://material.angularjs.org' target='_blank'>Angular Material</a> library. So, I'm excited to try that out, and see how easy it is to publish to multiple mobile platforms."
+            }, {
+                "type": "next-project",
+                "title": "A chrome extension",
+                "picture": {
+                    "url": "images/pictures/other/firebase-chrome.png",
+                    "name": "Firebase in a Chrome extension"
+                },
+                "content": "I've already tried my hand at a couple Chrome extension tutorials. What I'm after is a way to send push notifications to the desktop, and I'm liking <a href='https://www.firebase.com/' target='_blank'>Firebase</a>, in a chrome extension, to do it."
+            }, {
+                "type": "picture",
+                "title": "Austin AngularJS meetup",
+                "picture": {
+                    "url": "images/pictures/other/angular-meetup.png",
+                    "name": "Co-organizer of the AngularJS meetup in Austin"
+                },
+                "content": "I am a co-organizer of the Angular meetup in Austin. And if you let me, I'll talk Angular 'til the cows come home. Live in Austin? Join the meetup <a href='http://www.meetup.com/AngularJS/' target='_blank'>here</a>."
+            }, {
+                "type": "picture",
+                "title": "The KZ750",
+                "picture": {
+                    "url": "images/pictures/other/motorcycles.png",
+                    "name": "My KZ750 and friends"
+                },
+                "content": "The middle one is a 1980 Kawasaki KZ750. So far, I've replaced the muffler, patched the tank twice, and replaced an ignition switch. Next I'm going to get the tank welded at a radiator shop, replace the ignition cable, tighten the clutch cable (or replace the clutch plates), and replace the seat."
+            }, {
+                "type": "picture",
+                "title": "Tighter B-Nuts",
+                "picture": {
+                    "url": "images/pictures/other/ge-engine.png",
+                    "name": "A GE aircraft engine"
+                },
+                "content": "At GE, one of our projects was to devise a way to remotely measure the torque of all the hundreds of B-Nuts on a GE aircraft engine."
+            }, {
+                "type": "picture",
+                "title": "Asset tracking via RFID",
+                "picture": {
+                    "url": "images/pictures/other/ge-container.gif",
+                    "name": "CAD drawings of a shipping container with an asset tracking system"
+                },
+                "content": "Another GE project, this one for GE Asset Services, was an asset tracking system. These are some CAD drawings I did of different manifestations of a remote asset identification gate that could be built into shipping containers."
+            }, {
+                "type": "video",
+                "title": "Videos built in Adobe Premiere Pro",
+                "video": {
+                    "url": "https://www.youtube.com/embed/u0RuwpncWTY",
+                    "name": "Built in Adobe Premiere Pro"
+                },
+                "content": "You may have seen this already under the YourSigma heading. It's a video I created in Adobe Premiere, chaulk full of cuts, zooms, and plenty of other effects. Not to mention the work splicing in the audio narration."
+            }, {
+                "type": "video",
+                "title": "An 8x5 plywood desk",
+                "video": {
+                    "url": "https://www.youtube.com/embed/95Aoi9tUgng",
+                    "name": "Caitlin drilling into the big Upswing desk"
+                },
+                "content": "Upswing moved out of the house and into offices in January 2015. Caitlin, after having a wall removed, found instructions for an 8x5 DIY desk. I did most of the wood-cutting is why I get any credit."
+
+            }, {
+                "type": "next-project",
+                "title": "Like in that movie...",
+                "picture": {
+                    "url": "images/pictures/other/book-mockup.png",
+                    "name": "A book to inform entrepreneurs of business tactics gleaned from the movies"
+                },
+                "content": "There's lots of good advice, mixed with lots of bad advice, in movies. The Godfather is probably the first to come to mind for most people. In short, this book would be the Art of War according to Michael Mann, Christopher Nolan, the Cohen brothers, and so on."
+
+            }
+        ]
+    },
+    {
+        "name": "Design",
+        "id": "design",
+        "theme": "purple",
+        "description": "I am just a design padowan and haven't been invited to Dribbble yet.",
+        "background": "An engineer has to be at least a mediocre designer - you use design to share your vision for a product, which you better do before you go and build it. A mechanical engineer uses CAD software (like I did at GE), and a software engineer uses Photoshop, Illustrator, <a href=‘http://invisionapp.com' target=‘_blank’>Invision</a>, or any of the many wireframe and prototyping tools available to UI designers.",
+        "cards": [{
+                "type": "picture",
+                "title": "Pohleusis logo",
+                "picture": {
+                    "url": "images/pictures/design/pohleusis-logo.png",
+                    "name": "The Pohleusis logo"
+                },
+                "content": "In 2009, I registered Pohleusis so that the CFAid iPhone application could be sold on the app store by a business and not by me, personally. Pohleusis is Greek for horse-breaking, according to <a href='https://www.linkedin.com/pub/clem-wood/17/128/922' target='_blank'>Clem Wood</a>. This logo is a mashup of a couple images. The cowboy is looking at the mustang and is thinking - just another day."
+            }, {
+                "type": "picture",
+                "title": "Lapman",
+                "picture": {
+                    "url": "images/pictures/design/lapman.gif",
+                    "name": "Lapman, a magically opening and closing laptop"
+                },
+                "content": "Like pacman, but a laptop. You know those times you go looking for a good laptop graphic for your website, and then think, what if this laptop went chomping across the page while a video loaded or something; then, you spend the whole day building it, just to change your mind. Well, lapman was the manufacture of one of those times - it was my first ever home-made GIF, born in 2012."
+            }, {
+                "type": "picture",
+                "title": "GE CAD designs",
+                "picture": {
+                    "url": "images/pictures/design/ge.png",
+                    "name": "Loading docks with asset tracking gates"
+                },
+                "content": "All my designs at the GE global research center were done in SolidWorks, a CAD program. One of our projects for GE Asset Services (as it was called in 2007) was a system for tracking cargo in and out of a distribution center via RFID. In the design above, the RFID gates were positioned just inside the loading bay."
+
+            }, {
+                "type": "picture",
+                "title": "Upswing flyers",
+                "picture": {
+                    "url": "images/pictures/design/upswing-flyer.png",
+                    "name": "A flyer to promote Upswing on campus"
+                },
+                "content": "At a startup, especially one without a dedicated marketing team or lead, every employee is going to get their design \"chops\". For many of our employees at Upswing, it was their first time using Photoshop, Illustrator, and Indesign.<br><br>Anyway, we had to create flyers for our campus ambassadors to put up around campus. And this was one that I threw together."
+
+            }, {
+                "type": "picture",
+                "title": "Cloud Survey",
+                "picture": {
+                    "url": "images/pictures/design/cloudsurvey.png",
+                    "name": "A simple, pretty web survey"
+                },
+                "content": "Just a simple, 3 part survey with progress bar. Data, after all, makes an application go 'round. What is cool about this is the passing clouds and dimming sky in the background - it's animated. <br><br>Check it out at <a href='http://cloudsurvey.morganintrator.com/' target='_blank'>cloudsurvey.morganintrator.com</a>"
+            }, {
+                "type": "dribbble-likes",
+                "title": "Dribbble likes",
+                "content": "My most recent likes on Dribbble"
+            }
+
+        ]
+    },
+    {
+        "name": "Thanks go to ...",
+        "id": "credits",
+        "theme": "gray",
+        "image": {
+            "url": "images/hits/credits.png"
+        },
+        "description": "This website and other feats were all reached with help from, or by standing on the shoulders of, exceptional people and organizations.",
+        "background": "There's a bit of dialogue in the movie <a href='http://www.imdb.com/title/tt0252503/' target='_blank'>Heist</a> that amounts to one of my guiding principles:<br><br><div style='width: 300px; margin: auto;'><strong>Guy</strong><br><div style='text-align: left'>You're a pretty smart fella.</div><br><strong>Hackman</strong><br><div style='text-align: left;'>Ah, not that smart.</div><br><strong>Guy</strong><br><div style='text-align:left;'>[If] you're not that smart, how'd you figure it out?</div><br><strong>Hackman</strong><div style='text-align: left;'>I tried to imagine a fella smarter than myself. Then I tried to think, \"what would he do?\"</div></div><br>The last line is the mantra. Over the years, however, I did not have to \"imagine\" the person smarter than me, kinder than me, braver than me - they were already among my role models, mentors, and friends. Sometimes, it was a group of people (programmers) making it possible for me to punch out of my weight class (I'm looking at you Angular). I'm grateful to them all.",
+        "cards": [{
+                "type": "picture",
+                "title": "Friends and family",
+                "picture": {
+                    "url": "images/pictures/credits/friends-family.png",
+                    "name": "Friends and family"
+                },
+                "content": "Thanks for the love and support!"
+
+            }, {
+                "type": "picture",
+                "title": "The Polymer Team",
+                "picture": {
+                    "url": "images/pictures/credits/polymer.png",
+                    "name": "The Polymer framework"
+                },
+                "content": "I built this site using the shell of their demo. Thanks Eric Bidelman, Alex Komoroske and Matthew McNulty for keeping the bleeding edge bloody sharp."
+
+            }, {
+                "type": "picture",
+                "title": "The Angular Team",
+                "picture": {
+                    "url": "images/pictures/credits/angular-icon.png",
+                    "name": "After winning the championship in the 4B league at Chelsea Piers"
+                },
+                "content": "Angular is pure magic. I credit Angular for stoking a passion for programming that had been smothered out by rote college courses in C++. That feeling you get when you finish building something cool, something that previously only existed in your imaginiation - That is a constant reward of using Angular. And I'm just getting started - I could proselytize this framework for hours. So thanks to the guys behind it: Miško Hevery, Adam Abrons, Igor Minár and Vojta Jína."
+
+            }, {
+                "type": "picture",
+                "title": "Lynn DeRose and PDS",
+                "picture": {
+                    "url": "images/pictures/credits/ge.png",
+                    "name": "After winning the championship in the 4B league at Chelsea Piers"
+                },
+                "content": "<a href='https://twitter.com/lynn_derose_ge' target='_blank'>Lynn DeRose</a> hired me at the GE Global Research Center in Niskayuna, NY. I got a taste for invention, research, and complex engineering. I learned to appreciate meritocracy in the workplace and the thrill of working with some of the smartest people in the world. Thanks to all the fun-loving research scientists in the Pervasive Decisioning Systems group! That is Lynn DeRose, Pat Mackenzie, Janet Bennett, Joe Salvo, Doug Forman, Dave Horney, Brandon Good, Judy Guzzo, Burt Theurer, Roman Brusilovsky, John Carbone, Rob Graziano, and Daniel Messier."
+            }, {
+                "type": "picture",
+                "title": "Phillips Academy, Ada Fan, & Eugene Constantine III",
+                "picture": {
+                    "url": "images/pictures/credits/andover.png",
+                    "name": "After winning the championship in the 4B league at Chelsea Piers"
+                },
+                "content": "I learned a lot of things at Andover, not all of them academic. Grit, for example (as described in <a href='http://www.amazon.com/Horaces-Compromise-Dilemma-American-School/dp/0618516069' target='_blank'>Horace's Compromise</a>). Ada Fan taught me more than English. She also dished out good advice about living and about values that I remember constantly.<br><br>And, I owe the whole experience to a fellow alumnus Eugene Constantine."
+            }, {
+                "type": "picture",
+                "title": "Chris Webb",
+                "picture": {
+                    "url": "images/pictures/credits/chriswebb.png",
+                    "name": "After winning the championship in the 4B league at Chelsea Piers"
+                },
+                "content": "I am indebted to Chris for quitting his job and going on a wild adventure in entrepreneurship with me.<br><br>Not to mention, half of what I learned in programming those years I just osmoted from him."
+            }
+        ]
+    }
+
+]

@@ -1,0 +1,474 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="morgans-hits.html">
+<link rel="import" href="morgans-hit.html">
+<link rel="import" href="morgans-profile.html">
+<link rel="import" href="morgans-credits.html">
+<link rel="import" href="../core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="../core-drawer-panel/core-drawer-panel.html">
+<link rel="import" href="../core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../core-animated-pages/transitions/slide-up.html">
+<link rel="import" href="../core-animated-pages/transitions/scale-up.html">
+<link rel="import" href="../core-animated-pages/transitions/tile-cascade.html">
+<link rel="import" href="../core-media-query/core-media-query.html">
+<link rel="import" href="../paper-shadow/paper-shadow.html">
+<link rel="import" href="../core-icon-button/core-icon-button.html">
+<link rel="import" href="../core-signals/core-signals.html">
+<link rel="import" href="../core-icons/core-icons.html">
+<link rel="import" href="../core-icons/av-icons.html">
+<link rel="import" href="../core-tooltip/core-tooltip.html">
+<link rel="import" href="../flatiron-director/flatiron-director.html">
+
+<link rel="import" href="../font-awesome-polymer-icons/fa-icons.html">
+
+<!--<script src="../web-animations-js/web-animations-next.min.js"></script>-->
+<script src="../web-animations-js-legacy/web-animations.js"></script>
+
+<script src="../highcharts/adapters/standalone-framework.js"></script>
+<script src="../highcharts/highcharts.js"></script>
+<script src="../highcharts/modules/exporting.js"></script>
+
+
+<polymer-element name="morgans-app" attributes="user hits" vertical layout>
+
+<template>
+
+  <link rel="stylesheet" href="morgans-app.css">
+
+  <flatiron-director route="{{route}}"></flatiron-director>
+
+  <core-animated-pages id="pages" selected="{{selected}}" transitions="cross-fade cross-fade-delayed scale-up slide-up slide-up-offscreen slide-down tile-cascade hero-transition" flex auto on-core-animated-pages-transition-end="{{transitionEnd}}">
+
+    <div name="splash">
+
+      <div fit class="splash {{ {wide: wide}  | tokenList}}" cross-fade>
+
+        <div fit hero hero-id="turntable-collection" id="turntable-collection">
+          <div fit>
+            <div id="turntable">
+            </div>
+          </div>
+
+          <div fit>
+            <div id="album">
+            </div>
+          </div>
+
+          <div fit>
+            <div id="needle" class="{{ {place: place} | tokenList }}"></div>
+          </div>
+        </div>
+
+
+        <div vertical layout fit>
+          <div flex></div>
+          <paper-shadow id="cover" z="1" class="{{ {clickable: clickable} | tokenList}}" on-click="{{intro}}">
+            <div>
+              <div>Morgan's</div>
+              <div>Greatest Hits</div>
+            </div>
+            <div class="play-icon" hidden?="{{!clickable}}" cross-fade>
+              <core-icon icon="av:play-arrow"></core-icon>
+            </div>
+          </paper-shadow>
+          <div flex></div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <template repeat="{{hit in hits}}">
+      <div style="background: url('images/hits/{{hit.id}}.png') no-repeat -9999px -9999px;"></div>
+    </template>
+
+    <morgans-hits id="hits" route="{{route}}" name="hits" user="{{user}}"
+      hits="{{hits}}" hit="{{hit}}" wide="{{wide}}" on-core-activate="{{hitSelect}}"></morgans-hits>
+
+    <morgans-hit id="hit" route="{{route}}" history="{{history}}" name="hit" user="{{user}}" hit="{{hit}}" posts="{{posts}}" wide="{{wide}}"></morgans-hit>
+
+  </core-animated-pages>
+
+  <core-media-query query="min-width: {{responsiveWidth}}" queryMatches="{{wide}}"></core-media-query>
+  <!--<core-ajax auto handleAs="json" url="http://www.morganatwork.com/?json=1" on-core-response="{{handlePosts}}"></core-ajax>-->
+
+</template>
+<script>
+
+(function() {
+
+  window.setTopekaTransitionSpeed = function(ms) {
+    CoreStyle.g.transitions.duration = ms + 'ms';
+    CoreStyle.g.transitions.scaleDelay = CoreStyle.g.transitions.duration;
+  }
+
+
+  setTopekaTransitionSpeed(450);
+
+  Polymer('morgans-app', {
+
+    // selected: 'hits',
+
+    responsiveWidth: '900px',
+
+    connected: false,
+
+    disableLeaderboard: false,
+
+    observe: {
+      // 'user': 'startup',
+      'hits': 'loaded'
+    },
+
+    hitsHash: {},
+
+    loading: true,
+
+    history: 0,
+
+    eventDelegates: {
+      'director-route': 'state'
+    },
+
+    loaded: function(old, value) {
+      if (value && value.length > 0) {
+        value.forEach(function(hit) {
+          this.hitsHash[hit.id] = hit;
+        }, this);
+        this.loading = false;
+
+        //try to add posts
+        this.addPosts();
+      }
+    },
+
+    //for wordpress posts
+    handlePosts: function(a, data) {
+      if (data) {
+        this.posts = data.response.posts;
+        this.addPosts();
+      }
+    },
+    addPosts: function() {
+      var hitsHash = this.hitsHash;
+      if (this.posts && this.hits) {
+
+        //create tags count
+        var slugCount = {};
+
+        //attach posts to hits
+        this.posts.forEach(function(post) {
+          post.tags.forEach(function(tag) {
+            if (hitsHash[tag.slug]) {
+              if (!hitsHash[tag.slug].posts)
+                hitsHash[tag.slug].posts = [];
+              hitsHash[tag.slug].posts.push(post);
+            }
+
+            //slug count
+            if (!slugCount[tag.slug])
+              slugCount[tag.slug] = 1;
+            else
+              slugCount[tag.slug]++;
+
+          });
+        });
+
+        //add all-blog-tags card to morganatwork
+        var card = {
+          type: 'tags',
+          title: 'Tags used across all my posts',
+          tags: []
+        };
+        for (var i in slugCount) {
+          card.tags.push(i);
+        }
+        hitsHash['morganatwork'].cards.push(card)
+
+        //add number tag for days since last post
+        var post = this.posts[0];
+        var days = Math.floor((new Date().getTime() - new Date(post.date).getTime())/86400000)
+        hitsHash['morganatwork'].cards.push({
+          type: 'number',
+          title: 'Days since my last post',
+          number: days,
+          content: '<a href="'+post.url+'" target="_blank">'+post.title+'</a>'
+        })
+
+        hitsHash['morganatwork'].posts = this.posts;
+
+
+      }
+    },
+
+    ready: function() {
+      this.test = window.location.search.indexOf('test') >= 0;
+      this.offline = this.test || window.location.search.indexOf('offline') >= 0;
+
+      var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+          // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+      var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+      var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+          // At least Safari 3+: "[object HTMLElementConstructor]"
+      var isChrome = !!window.chrome && !isOpera;              // Chrome 1+
+      var isIE = /*@cc_on!@*/false || !!document.documentMode; // At least IE6
+
+      if (isChrome || isFirefox)
+        this.isFullyCompatible = true;
+      else if (isSafari || isIE)
+        this.isPartiallyCompatible = true;
+      else
+        this.isNotCompatible = true;
+
+      this.readyTime = Date.now();
+
+      document.getElementById("loading").style.display = "none";
+
+      if (!this.user)
+        console.log("No user!");
+    },
+
+    state: function(e) {
+      console.log("Hello state: " + e.detail);
+
+      //beautiful!
+      if (this.selected == 'hit' && this.$.hit.selected != 'front') {
+        //prep hit for closings
+        this.$.hit.selected = 'front';
+        this.async(function() {
+          this.state(e);
+        }, null, parseInt(CoreStyle.g.transitions.duration));
+      }
+      else if (e.detail == 'hits') {
+        this.selected = 'hits';
+        window.location.hash = 'hits';
+        document.title = "Morgan's Greatest Hits";
+      }
+      else if (e.detail == '') {
+        this.showSplash();
+      }
+      else {
+        if (this.loading) {
+          this.async(function() {
+            if (this.hitsHash[e.detail])
+              this.showHit(e.detail);
+            else
+              this.showSplash();
+          }, null, 1000);
+        }
+        else {
+          if (this.hitsHash[e.detail])
+            this.showHit(e.detail);
+          else
+            this.showSplash();
+        }
+      }
+      this.history++;
+
+    },
+
+    showHit: function(id) {
+      if (id)
+        this.hit = this.hitsHash[id];
+      console.log(this.hit);
+      this.selected = 'hit';
+      window.location.hash = this.hit.id;
+      document.title = "Track 1: " + this.hit.name;
+    },
+
+    showSplash: function() {
+      this.selected = 'splash';
+      window.location.hash = '';
+      document.title = "Morgan's Greatest Hits";
+      if (this.history == 0)
+        this.startup();
+    },
+
+    hitSelect: function() {
+      if (this.hit)
+        this.showHit();
+    },
+
+    transitionEnd: function(e) {
+
+      if (this.selected == 'hit' && e.srcElement.id != 'hit')
+        this.fire('core-signal', {name: "app-transition-end", data: e});
+      else if (this.selected == "hits") {
+        this.endAnimation();
+        this.place = false;
+      }
+      else if (this.selected == 'splash')
+        this.startup();
+
+    },
+
+    startup: function() {
+      var elapsed = Date.now() - this.readyTime;
+      var t = this.minSplashTime - elapsed;
+      this.async('completeStartup', null, t > 0 ? t : 0);
+    },
+
+    completeStartup: function() {
+      // show album
+      this.a0 = this.$.album.animate([{
+        left: "0px",
+        offset: 0
+      }, {
+        left: "90px",
+        offset: 1
+      }], {
+        duration: 1000,
+        easing: 'ease-in-out',
+        iterations: 1,
+        fill: 'both'
+      });
+      this.a0.onfinish = function(e) {
+        this.clickable = true;
+      }.bind(this);
+
+    },
+
+    endAnimation: function() {
+      if (this.a1)
+        this.a1.cancel();
+      if (this.a2)
+        this.a2.cancel();
+      if (this.a0)
+        this.a0.cancel();
+
+
+    },
+
+    intro: function() {
+
+      if (!this.clickable)
+        return;
+
+
+      this.clickable = false;
+
+      var coverAnimation = new Animation(
+        this.$.cover, [{
+          right: "0px",
+          offset: 0
+        }, {
+          right: "4000px",
+          offset: 1
+        }], {
+          duration: 1000,
+          easing: 'ease-in-out',
+          iterations: 1,
+          fill: 'both'
+        });
+
+      var albumAnimation = new Animation(this.$.album, [{
+          left: "90px",
+          offset: 0
+        }, {
+          left: "0px",
+          offset: 1
+        }], {
+          duration: 1000,
+          easing: 'ease-in-out',
+          iterations: 1,
+          fill: 'both'
+        });
+
+      var turntableAnimation = new Animation(this.$.turntable, [{
+        left: "4000px",
+        offset: 0
+      }, {
+        left: "0px",
+        offset: 1
+      }], {
+        duration: 1000,
+        easing: 'ease-in-out',
+        iterations: 1,
+        fill: 'both'
+      });
+
+      var needleAnimation = new Animation(this.$.needle, [{
+        left: "4000px",
+        offset: 0
+      }, {
+        left: "0px",
+        offset: 1
+      }], {
+        duration: 1000,
+        easing: 'ease-in-out',
+        iterations: 1,
+        fill: 'both'
+      }, function() {
+
+      });
+
+      var animationGroup = new AnimationGroup([
+        coverAnimation,
+        albumAnimation,
+        turntableAnimation,
+        needleAnimation
+      ]);
+
+      var startAlbumAnimation = new Animation(this.$.album, [{
+          transform: 'rotate(0)'}, {
+          transform: 'rotate(180deg)'}
+        ], {
+        easing: 'ease-in',
+        fill: 'none',
+        duration: 1000
+      });
+
+      var spinAlbumAnimation = new Animation(this.$.album, [{
+          transform: 'rotate(0)'}, {
+          transform: 'rotate(180deg)'}
+        ], {
+        fill: 'both',
+        duration: 1000
+      });
+
+      // var setNeedleAnimation = new Animation(this.$.needle, [{
+      //     transform: 'rotate(-35deg)',
+      //     '-webkit-transform': 'rotate(-35deg)',
+      //   }, {
+      //     transform: 'rotate(0)',
+      //     '-webkit-transform': 'rotate(0)'
+      //   }
+      //   ], {
+      //   fill: 'both',
+      //   duration: 500
+      // });
+
+
+      var animationSequence = new AnimationSequence([
+        animationGroup,
+        startAlbumAnimation
+      ]);
+
+      var finalAnimation = new AnimationGroup([
+        spinAlbumAnimation
+        // setNeedleAnimation
+      ]);
+
+      this.a1 = document.timeline.play(animationSequence);
+      this.a1.onfinish = function(e) {
+        this.a2 = document.timeline.play(finalAnimation);
+        this.place = true;
+        this.a2.onfinish = function(e) {
+          this.route = "hits";
+        }.bind(this);
+      }.bind(this);
+
+    }
+  });
+
+})();
+</script>
+</polymer-element>

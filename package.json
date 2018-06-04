@@ -1,0 +1,13 @@
+{
+  "name": "morganintrator.com",
+  "version": "0.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-vulcanize": "^0.6"
+  },
+  "author": "",
+  "license": "ISC"
+}

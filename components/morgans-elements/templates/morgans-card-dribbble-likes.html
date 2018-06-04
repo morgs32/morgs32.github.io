@@ -1,0 +1,81 @@
+
+
+<polymer-element name="morgans-card-dribbble-likes" extends="morgans-card-base">
+
+    <template>
+
+        <link rel="stylesheet" href="../morgans-cards.css">
+
+        <style>
+            :host {
+                * {
+                    padding: 0;
+                    margin: 0;
+                }
+            }
+
+            .item {
+       
+            }
+
+            .item img {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .card-content {
+
+            }
+
+        </style>
+        
+        <core-ajax auto handleAs="json" auto url="https://api.dribbble.com/v1/users/morgs32/likes?access_token={{accessToken}}" on-core-response="{{handleShots}}"></core-ajax>
+
+
+        <div class="card">
+            <core-toolbar class="theme-bg">
+              <div flex>My Dribbble Likes</div>
+            </core-toolbar>
+
+            <div horizontal layout>
+                <a flex href="{{shots[0].shot.html_url}}" target="_blank" class="item">
+                    <img src="{{shots[0].shot.images.teaser}}">
+                </a>
+                <a flex href="{{shots[1].shot.html_url}}" target="_blank" class="item">
+                    <img src="{{shots[1].shot.images.teaser}}">
+                </a>
+            </div>
+            <div horizontal layout>
+                <a flex href="{{shots[2].shot.html_url}}" target="_blank" class="item">
+                    <img src="{{shots[2].shot.images.teaser}}">
+                </a>
+                <a flex href="{{shots[3].shot.html_url}}" target="_blank" class="item">
+                    <img src="{{shots[3].shot.images.teaser}}">
+                </a>
+            </div>
+
+            <div class="card-content">
+              <p>
+                <a href="https://dribbble.com/morgs32/likes" target="_blank">{{card.content}}</a>
+              </p>
+            </div>
+
+        </div>
+    </template>
+
+    <script>
+        Polymer('morgans-card-dribbble-likes', {
+            shots: [],
+            accessToken: '337efea7b593fcb664e8d6a8fc36250fccc0025c5302e2a92eda5954a4c6926b',
+            /* 
+                Currently no API key/authentication required with Dribbble's API (as of Apr 20, 2014)
+            */
+            handleShots: function (e) {
+                var shots = e.detail.response;
+                shots.length = 4;
+                this.shots = shots;
+            }
+        });
+    </script>
+
+</polymer-element>
