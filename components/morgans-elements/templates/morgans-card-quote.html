@@ -1,0 +1,77 @@
+
+
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+
+<link rel="import" href="../morgans-card-base.html">
+<link rel="import" href="../morgans-html-element.html">
+
+<polymer-element name="morgans-card-quote" extends="morgans-card-base">
+<template>
+
+  <link rel="stylesheet" href="../morgans-cards.css">
+
+  <style>
+
+    .quote {
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0 0 20px;
+    }
+
+    footer {
+      display: block;
+      font-size: 80%;
+      line-height: 1.428571429;
+      color: #999;
+    }
+    footer:before {
+      content: '\2014 \00A0';
+    }
+  
+    .sidebar {
+      padding: 20px;
+    }
+    .core-icon {
+      width: 36px;
+      height: 36px;
+    }
+
+  </style>
+
+
+  <div class="card">
+    <div horizontal layout>
+      <div class="theme-bg sidebar">
+        <core-icon icon="fa:quote-left"></core-icon>
+      </div>
+      <div flex class="card-content quote">
+        <p>{{card.quote}}</p>
+        <footer>{{card.source}}</footer>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</template>
+<script>
+  Polymer('morgans-card-quote', {
+    ready: function() {
+
+
+    }
+  });
+</script>
+</polymer-element>
+

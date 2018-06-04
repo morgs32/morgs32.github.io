@@ -1,0 +1,118 @@
+/*
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+
+
+
+
+.card {
+  position: relative;
+  width:  100%;
+  border-radius: 2px;
+  /*overflow: hidden;*/
+  background: #fff;
+  font-size: 1em;
+  font-weight: 300;
+
+}
+
+
+.card > core-toolbar {
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.15);*/
+}
+.card > core-toolbar::shadow #topBar {
+
+}
+
+.card h1 {
+
+}
+.card h2 {
+  font-weight: bold;
+  font-size: 20px;
+}
+.card h3 {
+
+}
+
+
+
+paper-fab.check-button {
+  position: absolute;
+  top: 148px;
+  right: 16px;
+  background-color: #f5f5f5;
+  color: #cdcdcd;
+  transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1) 500ms, background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transition: -webkit-transform 500ms cubic-bezier(0.4, 0, 0.2, 1) 500ms, background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+}
+
+:host([animate]) paper-fab {
+  visibility: hidden;
+}
+
+.wide paper-fab.check-button {
+  right: 24px;
+}
+
+
+/* bullets */
+.card .item-group {
+  padding-top: 10px;
+}
+
+.card .item-label {
+  font-weight: bold;
+}
+
+.card .item-value {
+  padding: 5px 0;
+}
+
+
+/* vertical cards */
+.card > img {
+  width: 100%;
+}
+
+
+
+/* horizontal cards */
+.card-image.horizontal {
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: contain;
+}
+
+
+
+
+.card-content {
+  padding: 20px;
+}
+.card-content .title {
+  margin: 10px 0 20px 0;
+  font-size: 1.2rem;
+  font-weight: 400;
+
+}
+.card-content /deep/ h1, 
+.card-content /deep/ h2, 
+.card-content /deep/ h3 {
+  font-size: 1.2em;
+}
+
+.card-header img {
+  width: 100%;
+}
+
+

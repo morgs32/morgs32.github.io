@@ -1,0 +1,75 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../morgans-card-base.html">
+
+<polymer-element name="morgans-card-tags" extends="morgans-card-base">
+<template>
+
+  <link rel="stylesheet" href="../morgans-cards.css">
+
+  <style>
+
+    .card-content {
+      padding-bottom: 0;
+    }
+    .tag {
+      display: inline-block;
+      padding: 15px;
+      margin-bottom: 20px;
+      border: 1px solid transparent;
+      border-radius: 4px;
+    }
+    .tag h4 {
+      margin-top: 0;
+      color: inherit;
+    }
+    .tag .tag-link {
+      font-weight: bold;
+    }
+    .tag > p,
+    .tag > ul {
+      margin-bottom: 0;
+    }
+    .tag > p + p {
+      margin-top: 5px;
+    }
+
+  </style>
+
+  <div class="card" >
+
+    <core-toolbar class="theme-bg">
+      <div flex>{{card.title}}</div>
+    </core-toolbar>
+
+    <div class="card-content">
+      <template repeat="{{tag, i in card.tags}}">
+        <div class="tag theme-bg-a">{{tag}}</div>
+      </template>
+    </div>
+  </div>
+    
+  
+
+
+
+
+</template>
+<script>
+
+  Polymer('morgans-card-tags', {
+    ready: function() {
+
+    }
+
+  });
+
+</script>
+</polymer-element>

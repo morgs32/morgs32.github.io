@@ -1,0 +1,81 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../morgans-card-base.html">
+<link rel="import" href="../../google-map/google-map.html">
+
+<polymer-element name="morgans-card-map" extends="morgans-card-base">
+<template>
+
+  <link rel="stylesheet" href="../morgans-cards.css">
+
+  <style>
+
+  </style>
+
+  <div class="card" >
+
+    <div style="height: 200px;"> 
+      <google-map id="map" latitude="{{card.latitude}}" longitude="{{card.longitude}}" fitToMarkers disableDefaultUI>
+        <template repeat="{{marker, i in card.markers}}">
+          <google-map-marker latitude="{{marker.latitude}}" longitude="{{marker.longitude}}">
+            {{marker.title || ""}}
+          </google-map-marker>
+        </template>
+      </google-map>
+    </div>
+
+    <div class="card-content">
+      <h1>{{card.title}}</h1>
+      <p>
+        <morgans-html-element html="{{card.content}}"></morgans-html-element>
+      </p>
+    </div>
+  </div>
+    
+  
+  <core-signals on-core-signal-hit-transition-end="{{resize}}"></core-signals>
+
+
+
+</template>
+<script>
+
+  Polymer('morgans-card-map', {
+    attached: function() {
+      var map = this.$.map;
+      var show = this.card.show;
+
+      if (show)
+        map.markers.forEach(function(marker) {
+          marker.info.open(map.map, marker.marker);
+        });
+
+    },
+    resize: function() {
+      var map = this.$.map;
+
+      setTimeout(function() {
+        // map.resize();
+        window.dispatchEvent(new Event('resize'));
+        map.updateMarkers();
+
+      }, 400);
+
+
+      // this.map.addEventListener('google-map-ready', function(e) {
+      //   this.map.updateMarkers();
+      //   window.dispatchEvent(new Event('resize'));
+      // });
+
+    }
+  });
+
+</script>
+</polymer-element>

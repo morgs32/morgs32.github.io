@@ -1,0 +1,18 @@
+<polymer-element attributes="html" name="morgans-html-element">
+  <template>
+    <div id="inject"></div>
+  </template>
+  <script>
+    Polymer({
+
+      observe: {
+        // 'user': 'startup',
+        'html': 'loaded'
+      },
+
+      loaded: function(old, value) {
+        this.injectBoundHTML(this.html, this.$.inject);
+      }
+    });
+  </script>
+</polymer-element>

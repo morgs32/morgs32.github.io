@@ -1,0 +1,190 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../core-toolbar/core-toolbar.html">
+<link rel="import" href="../core-icons/core-icons.html">
+<link rel="import" href="../paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../core-animated-pages/core-animated-pages.html">
+<link rel="import" href="theme.html">
+
+<polymer-element name="morgans-profile" vertical layout>
+<template>
+
+  <style>
+  
+    .card {
+      background-color: white;
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .wide.card:not(.tvmode) {
+      width: 512px;
+      margin-top: 64px;
+    }
+
+    .wide.card.multi-column {
+      width: 100%;
+      height: 100%;
+    }
+
+    .main-button {
+      position: absolute;
+      top: 12px;
+      left: 8px;
+      color: white;
+    }
+
+    .main-button.wide {
+      position: fixed;
+      top: 12px;
+      left: 16px;
+      color: #424242;
+    }
+
+    .title {
+      padding-left: 56px;
+      font-size: 16px;
+    }
+    
+    .wide .title {
+      padding: 0;
+    }
+    
+    .tvmode .title {
+      font-size: 24px;
+    }
+
+    .scroll {
+      overflow-y: auto;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .multi-column .list {
+      display: -webkit-flex;
+      display: flex;
+      -webkit-flex-flow: column wrap;
+      flex-flow: column wrap;
+      -webkit-align-content: stretch;
+      align-content: stretch;
+    }
+
+    .item {
+      background-color: white;
+      height: 56px;
+      padding: 8px 24px;
+      box-sizing: border-box;
+      position: relative;
+      font-size: 18px;
+      transition: box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.28s;
+    }
+    .multi-column .item {
+      padding: 16px 32px;
+    }
+
+    [animate] .item.rising {
+      box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      z-index: 10001 !important;
+      background-color: white;
+    }
+
+    [animate] .item.rising .rankNo {
+      display: none;
+    }
+    .multi-column [animate] .item.rising {
+    }
+
+    .delta {
+      display: none;
+      padding-right: 32px;
+      color: #00bbd3;
+      font-weight: bold;
+    }
+
+    [animate] .item.rising .delta {
+      display: inline-block;
+    }
+
+    .arrow {
+      display: none;
+      margin-left: -4px;
+      -webkit-transform: rotate(90deg);
+    }
+
+    [animate] .item.rising .arrow {
+      display: inline-block;
+    }
+
+    .rank {
+      width: 56px;
+    }
+
+    .avatar {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .name {
+      padding-left: 48px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding-right: 16px;
+    }
+
+    .main {
+      position: relative;
+    }
+
+    .main::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .bg {
+      background-color: #eee;
+    }
+
+    :host([animate]:not(.core-selected)) .bg {
+      z-index: -1;
+    }
+
+  </style>
+
+  <div class="bg" dummy fit layout vertical center center-justified hero-id="punch" hero?="{{history > 1}}" slide-up?="{{history <= 1}}">
+    <div class="hit-bg" relative?="{{wide}}" flex?="{{!wide}}">
+      <div fit></div>
+    </div>
+  </div>
+
+
+  <div class="main {{ {scroll: wide} | tokenList }}" flex center layout vertical hero-p>
+    <div flex vertical layout slide-up-offscreen?="{{parentElement.selected === 'me'}}" cross-fade="{{!wide && parentElement.selected !== 'me'}}" class="card {{ {wide: wide, 'multi-column': columns>1, tvmode: tvmode} | tokenList }}" relative>
+      <core-toolbar>
+        <div class="title">About me</div>
+      </core-toolbar>
+
+
+
+    </div>
+    <paper-icon-button hidden?="{{tvmode}}" class="main-button {{ {wide: wide} | tokenList }}" icon="arrow-back" on-tap="{{mainAction}}" cross-fade-delayed?="{{!disabled}}" hero?="{{!disabled}}"></paper-icon-button>
+  </div>
+
+</template>
+<script>
+
+  Polymer('morgans-profile', {
+
+    
+  });
+
+</script>
+</polymer-element>

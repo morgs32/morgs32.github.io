@@ -1,0 +1,261 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="../core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../core-animated-pages/transitions/slide-up.html">
+<link rel="import" href="../core-animated-pages/transitions/slide-down.html">
+
+<link rel="import" href="../core-icon/core-icon.html">
+<link rel="import" href="../core-image/core-image.html">
+
+<link rel="import" href="morgans-card-template.html">
+
+<polymer-element name="morgans-hit" attributes="user hit selected wide route history" vertical layout>
+<template>
+
+
+  <link rel="stylesheet" href="morgans-hit-themes.css">
+
+  <style>
+
+    h1 {
+      font-size: 1.4rem;
+      margin: 20px 0;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-weight: 300;
+      font-size: 1.4rem;
+    }
+    h3 {
+      font-weight: 300;
+      font-size: 24px;
+    }
+    .wide h1 {
+
+    }
+    .wide h2 {
+
+    }
+    .wide h3 {
+      font-size: 24px;
+    }
+
+    .content {
+      overflow-y: auto;
+    }
+
+    .hero-section {
+      position: relative;
+      border-bottom: 1px solid #aaa;
+    }
+    .hero-section.wide {
+      height: 80%;
+      max-height: 430px;
+    }
+
+    .main-button {
+      top: 10px;
+      left: 10px;
+    }
+
+    .hero-image {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right bottom;
+      margin: 0 0 0 40px;
+    }
+    .hero-image.phone {
+      height: 200px;
+      background-position: bottom center;
+      width: 80%;
+    }
+
+    .marquee {
+      margin: 40px auto;
+    }
+    .marquee.wide {
+      text-align: center;
+    }
+
+    /* useful on phone */
+    .hero-copy, 
+    .marquee {
+      padding: 0 60px;
+    }
+
+
+
+    .cards {
+      padding: 20px;
+      position: relative;
+    }
+    .cards.wide {
+
+    }
+
+  </style>
+
+
+  <div class="{{hit.theme}}-theme theme-bg-a" dummy fit layout vertical center center-justified hero-id="punch" hero?="{{history > 1}}" slide-up?="{{history <= 1}}">
+  </div>
+
+
+  <div class="{{hit.theme}}-theme {{ {wide: wide} | tokenList }}" flex vertical layout>
+
+
+
+    <core-animated-pages fit selected="{{selected}}" transitions="cross-fade cross-fade-delayed slide-up slide-down hero-transition" on-core-animated-pages-transition-end="{{transitionEnd}}">
+
+      <section name="front">
+      </section>
+
+      <section name="content">
+        
+        <div cross-fade fit id="content" class="content" style="background: #f7f7f7;">
+
+          <div class="hero-section theme-bg {{ {wide: wide} | tokenList }}" slide-down vertical layout>
+            <div class="header">
+              <paper-icon-button class="main-button {{ {'theme-color': !wide && selected == 'quizzes'} | tokenList }}" icon="arrow-back" on-tap="{{showHits}}" hero?="{{parentElement.selected === 'hits'}}" cross-fade-delayed?="{{parentElement.selected === 'hit'}}"></paper-icon-button>
+            </div>
+            <div flex?="{{wide}}" style="max-width: 1180px; margin: auto; width: 100%;" horizontal?="{{wide}}" layout>
+              <core-image flex id="hero" loading="{{loading}}" sizing="contain" position="bottom center" hidden?="{{!wide}}" class="hero-image" src="images/hits/{{hit.id}}.png"></core-image>
+              <div flex vertical layout>
+                <div flex></div>
+                <div class="hero-copy">
+                  <h1>{{hit.name}}</h1>
+                  <template if="{{hit.description}}">
+                    <h2>
+                      <morgans-html-element html="{{hit.description}}"></morgans-html-element>
+                    </h2>
+                  </template>
+                  <template if="{{hit.source}}">
+                    <h2>
+                      <a target="_blank" href="{{hit.source.url}}">{{hit.source.name || hit.source.url}}</a>
+                    </h2>
+                  </template>
+                </div>
+                <div flex></div>
+              </div>
+              <div flex hidden?="{{wide}}" class="hero-image {{ {phone: !wide} | tokenList }}" style="background-image: url('images/hits/{{hit.id}}.png')">
+              </div>
+            </div>
+          </div>
+
+          <template if="{{hit}}">
+            <div style="max-width: 980px; margin: auto;">
+
+              <div class="marquee {{ {wide: wide} | tokenList }}">
+                <h2>
+                  <morgans-html-element html="{{hit.background}}"></morgans-html-element>
+                </h2>
+              </div>
+
+              <div horizontal layout slide-up>
+                <template if="{{wide}}">
+                  <div flex>
+                    <div class="cards">
+                      <template repeat="{{card, i in hit.cards}}">
+                        <template if="{{i%2 === 0}}">
+                          <morgans-card-template card="{{card}}" hit="{{hit}}"></morgans-card-template>
+                        </template>
+                      </template>
+                      <template repeat="{{post, i in hit.posts}}">
+                        <template if="{{i%2 === 0}}">
+                          <morgans-card-template type="post" card="{{post}}" hit="{{hit}}"></morgans-card-template>
+                        </template>
+                      </template>                    </div>
+                  </div>
+                  <div flex>
+                    <div class="cards">
+                      <template repeat="{{card, i in hit.cards}}">
+                        <template if="{{i%2 === 1}}">
+                          <morgans-card-template card="{{card}}" hit="{{hit}}"></morgans-card-template>
+                        </template>
+                      </template>
+                      <template repeat="{{post, i in hit.posts}}">
+                        <template if="{{i%2 === 1}}">
+                          <morgans-card-template type="post" card="{{post}}" hit="{{hit}}"></morgans-card-template>
+                        </template>
+                      </template>
+                    </div>
+                  </div>
+                </template>
+                <template if="{{!wide}}">
+                  <div flex>
+                    <div class="cards">
+                      <template repeat="{{card, i in hit.cards}}">
+                        <morgans-card-template card="{{card}}" hit="{{hit}}"></morgans-card-template>
+                      </template>
+                      <template repeat="{{post, i in hit.posts}}">
+                        <morgans-card-template type="post" card="{{post}}" hit="{{hit}}"></morgans-card-template>
+                      </template>
+
+                    </div>
+                  </div>
+                </template>
+              </div>
+
+            </div>
+          </template>
+
+
+        </div>
+
+      </section>
+
+    </core-animated-pages>
+
+
+
+  </div>
+
+  <core-signals on-core-signal-app-transition-end="{{showContent}}"></core-signals>
+
+</template>
+<script>
+
+  Polymer('morgans-hit', {
+
+    selected: 'front',
+    wide: false,
+
+    ready: function() {
+
+
+    },
+
+    showHits: function() {
+      this.route = 'hits';
+    },
+
+    showContent: function() {
+      this.$.content.scrollTop = 0;
+
+
+      // var img = new Image();
+      // img.src = this.hit.image.url;
+      // img.onload = function() {
+      //   console.log("loaded!");
+      // }.bind(this);
+
+      this.selected = 'content';
+
+    },
+
+    transitionEnd: function(e) {
+      this.fire('core-signal', {name: "hit-transition-end", data: e});
+    }
+
+
+});
+
+</script>
+</polymer-element>

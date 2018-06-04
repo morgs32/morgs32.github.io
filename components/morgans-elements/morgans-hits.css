@@ -1,0 +1,180 @@
+/*
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+
+.hits-panel {
+  position: relative;
+  /* TODO(sjmiles): why is this necessary? */
+  overflow-x: hidden;
+}
+
+.hits-background {
+  background-color: #424242;
+}
+
+.hit-toolbar {
+  height: 100px;
+  z-index: 1;
+  /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);*/
+}
+
+.hit-toolbar::shadow #topBar {
+  height: 96px;
+}
+
+.topeka-avatar {
+  border-radius: 50%;
+  overflow: hidden;
+  height: 64px;
+  width: 64px;
+}
+
+
+.hit-bg-wrapper core-icon {
+  height: 100%;
+  width: 100%;
+}
+
+.hit-list {
+  display: block;
+  position: absolute;
+  top: 100px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 2px 0;
+  margin: 0 -2px;
+/*  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+*/
+  /* need so that hit to hits transition is on top of navbar */
+  overflow: visible;
+
+}
+
+.user-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hit-item {
+  position: relative;
+  float: left;
+  vertical-align: top;
+  width: 50%;
+  height: 224px;
+  /*
+   * TODO(dfreedm): force items to be layers until
+   * overflow scrolling renders correctly
+   */
+  will-change: transform;
+}
+
+.hit-item[needZ] {
+  z-index: 10000; /* need this for will-change */
+}
+
+.hit-item.completed {
+  pointer-events: none;
+}
+
+.tile {
+  position: relative;
+  margin: 2px;
+}
+
+.hit-tile-bg {
+  position: absolute !important;
+}
+
+.hit-bg-wrapper {
+  width: 80%;
+  height: 80%;
+}
+
+.completed .hit-bg-wrapper {
+  width: 96px !important;
+  height: 96px !important;
+}
+
+.h-name {
+  height: 48px;
+  padding: 0 16px;
+  font-size: 12px;
+}
+
+.polymer-logo > .tile {
+  background-color: #eee;
+}
+
+.polymer-logo core-icon {
+  width: 100%;
+  height: 100%;
+}
+
+/* wide layout */
+.wide.hit-list {
+  padding: 4px 0;
+  margin: 0 -4px;
+  /* need to avoid transitioning elemnents causing scrollbars to appear */
+  /*overflow-y: hidden;*/
+
+}
+
+.wide .hit-item > .tile {
+  margin: 4px;
+}
+
+.wide .hit-item {
+  width: calc(100% / 6);
+  height: calc(100% / 3);
+}
+
+.wide .hit-item:nth-of-type(1) {
+  width: calc(100% / 3);
+  height: calc(100% / 3 * 2);
+}
+
+.wide .hit-item:nth-of-type(1) .hit-bg-wrapper {
+  width: 64%;
+  height: 64%;
+}
+
+.wide .hit-item:nth-of-type(4),
+.wide .hit-item:nth-of-type(6) {
+  width: calc(100% / 3);
+}
+
+.wide .hit-item:nth-of-type(4) .hit-bg-wrapper,
+.wide .hit-item:nth-of-type(6) .hit-bg-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.wide .hit-item:nth-of-type(5) {
+  width: calc(100% / 3);
+  height: calc(100% / 3 * 2);
+}
+
+.wide .hit-item:nth-of-type(9) {
+  position: absolute;
+  top: calc(100% / 3 * 2);
+  left: 0;
+  width: calc(100% / 6);
+  height: calc(100% / 3 - 4px);
+}
+
+.wide .hit-item:nth-of-type(10) {
+  position: absolute;
+  top: calc(100% / 3 * 2);
+  left: calc(100% / 6);;
+  width: calc(100% / 6);
+  height: calc(100% / 3 - 4px);
+}

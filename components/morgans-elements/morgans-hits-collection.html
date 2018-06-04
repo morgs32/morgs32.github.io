@@ -1,0 +1,60 @@
+<!--
+Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<link rel="import" href="hit-icons.html">
+<link rel="import" href="morgans-toolbar-turntable.html">
+
+<link rel="import" href="../core-toolbar/core-toolbar.html">
+<link rel="import" href="../core-selector/core-selector.html">
+<link rel="import" href="../core-icon/core-icon.html">
+
+<polymer-element name="morgans-hits" attributes="user hits hit wide route" vertical layout>
+<template>
+
+  <link rel="stylesheet" href="morgans-hits.css">
+  <link rel="stylesheet" href="morgans-hit-themes.css">
+
+      <template repeat="{{h, i in hits}}">
+      
+          <div class="hit-item {{h.theme}}-theme" vertical layout needZ?="{{hit.name === h.name}}">
+            <div class="tile" flex auto vertical layout>
+              <div flex auto relative>
+              <div class="theme-bg-a" dummy fit hero-id="{{hit.name === h.name ? 'punch' : ''}}" hero?="{{hit.name === h.name}}"></div>
+                <!-- sizing wrapper -->
+                <div fit layout vertical center center-justified style="height: 100%; width: 100%;">
+                  <div class="hit-bg-wrapper" relative>
+                    <core-icon class="hit-tile-bg theme-icon" icon="{{'hit-icons:' + h.id}}" cross-fade-delayed?="{{hit.name === h.name && parentElement.lastSelected === 'hit'}}" fit></core-icon>
+                  </div>
+                </div>
+              </div>
+              <div class="h-name theme-bg" horizontal center layout>
+                <div flex>
+                  <span>{{h.name}}</span>
+                </div>
+                <core-icon class="hit-icon theme-bg" icon="av:play-arrow"></core-icon>
+              </div>
+            </div>
+          </div>
+      
+      </template>
+
+    </core-selector>
+
+  </div>
+
+</template>
+<script>
+
+  Polymer('morgans-hits-repeat', {
+
+
+  });
+
+</script>
+</polymer-element>
