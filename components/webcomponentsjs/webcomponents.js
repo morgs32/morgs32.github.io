@@ -40,12 +40,13 @@
       flags.log = {};
     }
   }
-  flags.shadow = flags.shadow || flags.shadowdom || flags.polyfill;
-  if (flags.shadow === "native") {
-    flags.shadow = false;
-  } else {
-    flags.shadow = flags.shadow || !HTMLElement.prototype.createShadowRoot;
-  }
+  flags.shadow = true;
+  // flags.shadow = flags.shadow || flags.shadowdom || flags.polyfill;
+  // if (flags.shadow === "native") {
+  //   flags.shadow = false;
+  // } else {
+  //   flags.shadow = flags.shadow || !HTMLElement.prototype.createShadowRoot;
+  // }
   if (flags.register) {
     window.CustomElements = window.CustomElements || {
         flags: {}
@@ -3885,6 +3886,7 @@ if (WebComponents.flags.shadow) {
     function destributeNodeInto(child, insertionPoint) {
       getDistributedNodes(insertionPoint).push(child);
       var points = destinationInsertionPointsTable.get(child);
+      if (!child) return
       if (!points) destinationInsertionPointsTable.set(child, [ insertionPoint ]); else points.push(insertionPoint);
     }
     function getDestinationInsertionPoints(node) {
