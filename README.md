@@ -3,7 +3,7 @@ Morgan's Greatest Hits
 
 ### Directions:
 
-Visit morganintrator.com
+Visit (bestof.morganatwork.com)[https://bestof.morganatwork.com]
 
 Use `grunt` to develop locally
 
