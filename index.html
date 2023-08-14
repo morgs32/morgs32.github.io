@@ -3,137 +3,141 @@
 <!--[if IE 7 ]>    <html class="ie"> <![endif]-->
 <!--[if IE 8 ]>    <html class="ie"> <![endif]-->
 <!--[if IE 9 ]>    <html class="ie"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html class=""><!--<![endif]-->
-<script src="components/webcomponentsjs/webcomponents.js"></script>
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class=""><!--<![endif]-->
+  <script src="components/webcomponentsjs/webcomponents.js"></script>
 
-<head>
-  <title>Morgan's Greatest Hits</title>
+  <head>
+    <title>Morgan's Greatest Hits 2010-2016</title>
+    <link rel="canonical" href="https://bestof.morganatwork.com" />
 
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-touch-fullscreen" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style"
-        content="black-translucent" >
-  <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
 
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@morgs32" />
-  <meta name="twitter:title" content="Morgan's Greatest Hits" />
-  <meta name="twitter:description" content="A collection of projects and passions" />
-  <meta name="twitter:image" content="http://morganintrator.com/images/turntable.gif" />
-  <meta name="twitter:url" content="http://morganintrator.com" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@morgs32" />
+    <meta name="twitter:title" content="Morgan's Greatest Hits" />
+    <meta name="twitter:description" content="A collection of projects and passions of mine from 2010 to 2016" />
+    <meta name="twitter:image" content="http://bestof.morganatwork.com/images/turntable.gif" />
+    <meta name="twitter:url" content="http://bestof.morganatwork.com" />
 
 
-  <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
 
-  <link rel="icon" sizes="196x196" href="icons/album@196.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="icons/album@152.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="icons/album@144.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="icons/album@120.png">
+    <link rel="icon" sizes="196x196" href="icons/album@196.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/album@152.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/album@144.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/album@120.png">
 
-  <meta name="application-name" content="Morgan's Greatest Hits">
+    <meta name="application-name" content="Morgan's Greatest Hits">
 
-  <!--
+    <!--
   Chrome 35 has old :host behavior before :host-context addition.
   Since Chrome 35 does not have HTMLImports, we can use this as a decent signal
   to force the ShadowDOM Polyfill.
   -->
-  <script>
-    if (!('import' in document.createElement('link'))) {
-      var Platform = {flags: {shadow: true}};
-    }
-  </script>
+    <script>
+      if (!('import' in document.createElement('link'))) {
+        var Platform = { flags: { shadow: true } };
+      }
+    </script>
 
-  <style shim-shadowdom>
+    <style shim-shadowdom>
+      body[portrait] /deep/ [layout][horizontal][landscape],
+      body[landscape] /deep/ [layout][horizontal][portrait] {
+        -ms-flex-direction: column;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+      }
 
-  body[portrait] /deep/ [layout][horizontal][landscape], body[landscape] /deep/ [layout][horizontal][portrait] {
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-  }
+      body[portrait] /deep/ [layout][vertical][landscape],
+      body[landscape] /deep/ [layout][vertical][portrait] {
+        -ms-flex-direction: row;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+      }
+    </style>
 
-  body[portrait] /deep/ [layout][vertical][landscape], body[landscape] /deep/ [layout][vertical][portrait] {
-    -ms-flex-direction: row;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-  }
+    <link rel="stylesheet" href="theme.css" shim-shadowdom>
 
-  </style>
-
-  <link rel="stylesheet" href="theme.css" shim-shadowdom>
-
-  <!--
+    <!--
   <link rel="import" href="components/font-roboto/roboto.html">
   -->
-  <link rel="import" href="polyfills/fonts/roboto.html">
-  <link rel="import" href="components/core-icons/core-icons.html">
-  <link rel="import" href="components/core-icons/av-icons.html">
-  <link rel="import" href="components/core-icons/social-icons.html">
+    <link rel="import" href="polyfills/fonts/roboto.html">
+    <link rel="import" href="components/core-icons/core-icons.html">
+    <link rel="import" href="components/core-icons/av-icons.html">
+    <link rel="import" href="components/core-icons/social-icons.html">
 
 
-  <link rel="import" href="components/morgans-elements/morgans-datasource.html">
-  <link rel="import" href="components/morgans-elements/morgans-app.html">
-  
-  <link rel="import" href="components/morgans-elements/theme.html">
+    <link rel="import" href="components/morgans-elements/morgans-datasource.html">
+    <link rel="import" href="components/morgans-elements/morgans-app.html">
 
-  <script>
+    <link rel="import" href="components/morgans-elements/theme.html">
+
+    <script>
     // if (navigator.serviceWorker) {
     //   // Register our ServiceWorker
     //   navigator.serviceWorker.register("sw.js");
     // }
-  </script>
+    </script>
 
-</head>
-<body>
+  </head>
+
+  <body>
 
 
-  <template is="auto-binding">
-    <morgans-datasource url="components/morgans-elements/hits.json" user="{{user}}" hits="{{hits}}" connected="{{connected}}"></morgans-datasource>
-    <morgans-app fit user="{{user}}" hits="{{hits}}" connected="{{connected}}" touch-action="auto"></morgans-app>
-  </template>
+    <template is="auto-binding">
+      <morgans-datasource url="components/morgans-elements/hits.json" user="{{user}}" hits="{{hits}}"
+        connected="{{connected}}"></morgans-datasource>
+      <morgans-app fit user="{{user}}" hits="{{hits}}" connected="{{connected}}" touch-action="auto"></morgans-app>
+    </template>
 
-  <div id="sorry" style="position: fixed; width: 100%; height: 100%; display: none;">
-    <div style="width: 100%; max-width: 700px; font-size: 36px;">
-      <div style="padding: 20px;">
-        <div style="font-weight: 700; text-transform: uppercase;">
-          Sorry, but internet explorer
+    <div id="sorry" style="position: fixed; width: 100%; height: 100%; display: none;">
+      <div style="width: 100%; max-width: 700px; font-size: 36px;">
+        <div style="padding: 20px;">
+          <div style="font-weight: 700; text-transform: uppercase;">
+            Sorry, but internet explorer
+            <br>
+            <span style="color: #148d12; font-size: 50px;">is the kryptonite</span>
+            <br>
+            to my website
+          </div>
           <br>
-          <span style="color: #148d12; font-size: 50px;">is the kryptonite</span>
-          <br>
-          to my website
-        </div>
-        <br>
-        <div style="font-weight: 100; font-size: 22px; line-height: 30px;">
-          Try visiting it on <a href="http://www.google.com/chrome/browser/desktop/">Chrome</a> or <a href="http://www.mozilla.org/en-US/firefox/desktop/">Firefox</a> 
-          <br>
-          for the best experience
-        </div>
-      </div>
-    </div>  
-  </div>
-  <div id="iOS" style="position: fixed; width: 100%; height: 100%; display: none; background: white; z-index: 10;">
-    <div style="width: 100%; max-width: 700px; font-size: 36px;">
-      <div style="padding: 20px;">
-        <div style="font-weight: 700; text-transform: uppercase;">
-        Sorry, but my site is acting up on mobile
-        </div>
-        <div style="font-weight: 100; font-size: 22px; line-height: 30px;">
-          Try visiting it on desktop please
+          <div style="font-weight: 100; font-size: 22px; line-height: 30px;">
+            Try visiting it on <a href="http://www.google.com/chrome/browser/desktop/">Chrome</a> or <a
+              href="http://www.mozilla.org/en-US/firefox/desktop/">Firefox</a>
+            <br>
+            for the best experience
+          </div>
         </div>
       </div>
     </div>
-  </div>
+    <div id="iOS" style="position: fixed; width: 100%; height: 100%; display: none; background: white; z-index: 10;">
+      <div style="width: 100%; max-width: 700px; font-size: 36px;">
+        <div style="padding: 20px;">
+          <div style="font-weight: 700; text-transform: uppercase;">
+            Sorry, but my site is acting up on mobile
+          </div>
+          <div style="font-weight: 100; font-size: 22px; line-height: 30px;">
+            Try visiting it on desktop please
+          </div>
+        </div>
+      </div>
+    </div>
 
-</body>
+  </body>
 
 
-<script>
+  <script>
 
-  if (!('import' in document.createElement('link'))) {
-    var Platform = {flags: {shadow: true}};
-  }
-  (function () {
+    if (!('import' in document.createElement('link'))) {
+      var Platform = { flags: { shadow: true } };
+    }
+    (function () {
       "use strict";
 
       // Detecting IE
@@ -145,13 +149,13 @@
         sorry.style.display = "block";
       }
 
-//      if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
-//        var iOS = document.getElementById("iOS");
-//        iOS.style.display = "block";
-//      }
+      //      if( /iPhone|iPad|iPod/i.test(navigator.userAgent) ) {
+      //        var iOS = document.getElementById("iOS");
+      //        iOS.style.display = "block";
+      //      }
 
 
-  }());
+    }());
 
   // // Analytics for pp.org
   // (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -161,6 +165,6 @@
 
   // ga('create', 'UA-39334307-1', 'auto');
   // ga('send', 'pageview');
-</script>
+  </script>
 
 </html>
